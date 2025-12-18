@@ -10,9 +10,9 @@ source:
   sha256: d9b697b21b34884711399ba0f0376914b81899ce670032486d0d048344a76600
 
 build:
-  noarch: python
+  skip: true # [ py<310 ]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 2
 
 requirements:
   host:
@@ -34,14 +34,16 @@ test:
 
 about:
   home: https://github.com/MegaIng/interegular
-  summary: a regex intersection checker
+  summary: A regex intersection checker
+  description: |
+    A library to check a subset of python regexes for intersections. Based on
+    greenery by @qntm. Adapted for lark-parser.
   license: MIT
   license_file: LICENSE.txt
+  dev_url: https://github.com/MegaIng/interegular
+  doc_url: https://github.com/MegaIng/interegular
 
 extra:
-  anaconda-services:
-    ref: https://anaconda.zendesk.com/agent/tickets/49522
-    reason: Dependency for vllm
   recipe-maintainers:
     - ianaobi
   recipe-maintainers:
